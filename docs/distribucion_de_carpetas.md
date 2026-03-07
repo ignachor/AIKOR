@@ -2,62 +2,82 @@
 
 AIKOR/
 │
-├── public/                  # Punto de entrada del sitio
-│   ├── index.php            #Se usa un router, para poder acceder a (servicio, productos, contacto, (ubicacion))
-│   ├── admin.php
-|   |
+├── public/                         # Punto de entrada web (DocumentRoot)
+│   ├── index.php                   # Front Controller / Router
 │   │
 │   └── assets/
-│      ├── css/
-│      ├── js/
-│      └── images/
+│       ├── css/
+│       ├── js/
+│       └── images/
 │
-├── app/                     # Lógica del sistema
+├── app/                            # Código de la aplicación
+│
 │   ├── controllers/
-|   |   ├── HomeController.php
-|   |   ├── AdminController.php
+│   │   ├── HomeController.php
 │   │   ├── ProductoController.php
-│   │   └── CategoriaController.php
-│   │   └── PedidoController.php
-|   |   └── CarritoController.php
+│   │   ├── CarritoController.php
+│   │   ├── PedidoController.php
+│   │   └── AdminController.php
+│
 │   ├── models/
-|   |   ├── Usuario.php #Que derive en admin y cliente
+│   │   ├── Usuario.php
 │   │   ├── Producto.php
-│   │   └── Categoria.php
-|   |   |____ Pedidos.php
-|   |   |____ Carrito.php
-|
-|   ├── repositories/
-|   |    ├──ProductoRepository.php
-|   |    └──PedidoRepository.php   
-│   │
+│   │   ├── Categoria.php
+│   │   ├── Carrito.php
+│   │   ├── DetalleCarrito.php
+│   │   ├── Pedido.php
+│   │   └── DetallePedido.php
+│
+│   ├── repositories/
+│   │   ├── ProductoRepository.php
+│   │   ├── CategoriaRepository.php
+│   │   ├── CarritoRepository.php
+│   │   ├── DetalleCarritoRepository.php
+│   │   ├── PedidoRepository.php
+│   │   └── DetallePedidoRepository.php
+│
 │   ├── services/
-│   │   ├── WhatsAppService.php
-|   |   ├── PedidoService.php
-|   |   ├── CarritoService.php
-|   |   └── ProductoService.php
-│   │
+│   │   ├── ProductoService.php
+│   │   ├── CarritoService.php
+│   │   ├── PedidoService.php
+│   │   └── WhatsAppService.php
+│
 │   └── views/
+│       │
 │       ├── layout/
-│       |   ├── header.php
-│       |   └── footer.php
-│       | 
-│       ├── productos/
-│       |    ├── lista.php
-│       |    └── detalle.php
-│       |   
+│       │   ├── header.php
+│       │   └── footer.php
+│       │
 │       ├── home/
-│       |    └── home.php
-|       └── admin/
-│            ├── login.php
-│            ├── dashboard.php
-│            ├── productos.php
-│            ├── crear_producto.php
-│            └── editar_producto.php
+│       │   └── home.php
+│       │
+│       ├── productos/
+│       │   ├── lista.php
+│       │   └── detalle.php
+│       │
+│       ├── carrito/
+│       │   └── carrito.php
+│       │
+│       └── admin/
+│           ├── login.php
+│           ├── dashboard.php
+│           ├── productos.php
+│           ├── crear_producto.php
+│           └── editar_producto.php
+│
+├── storage/                        # Archivos generados por el sistema
+│   └── uploads/
+│       └── productos/
 │
 ├── docker/
-|   └── docker-compose.yml
+│   └── docker-compose.yml
 │
-├── storage/
-      └── uploads/  # imágenes de productos
-
+├── config/
+│   └── database.php                # conexión PDO
+│
+├── vendor/                         # Composer (si se usa)
+│
+├── .env                            # variables de entorno
+│
+├── README.md
+├──docs/

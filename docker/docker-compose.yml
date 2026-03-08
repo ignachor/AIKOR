@@ -1,4 +1,13 @@
 services:
+
+  php:
+    build: .
+    container_name: php
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ../:/var/www/html
   mysql:
     image: mysql:8.0
     container_name: mysql

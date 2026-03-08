@@ -70,6 +70,7 @@ AIKOR/
 │       └── productos/
 │
 ├── docker/
+|   ├── Dockerfile
 │   └── docker-compose.yml
 │
 ├── config/
